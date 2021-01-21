@@ -1,0 +1,54 @@
+{
+	"ENV": {
+		"type": "object",
+
+		"required": [
+			"NODE_ENV",
+
+			"IS_HTTP_SSL_ENABLED",
+
+			"COOKIE_SECRET"
+		],
+
+		"if": {
+			"properties": {
+				"IS_HTTP_SSL_ENABLED": {
+					"enum": ["true"]
+				}
+			}
+		},
+
+		"then": {
+			"required": [
+				"CERT_FILENAME",
+				"KEY_FILENAME",
+				"PEM_PASSPHRASE"
+			]
+		},
+
+		"properties": {
+			"NODE_ENV": {
+				"enum": ["development", "qa", "production"]
+			},
+
+			"IS_HTTP_SSL_ENABLED": {
+				"enum": ["true", "false"]
+			},
+			"CERT_FILENAME": {
+				"type": "string"
+			},
+			"KEY_FILENAME": {
+				"type": "string"
+			},
+			"PEM_PASSPHRASE": {
+				"type": "string"
+			},
+
+			"COOKIE_SECRET": {
+				"type": "string"
+			}
+		},
+
+		"additionalProperties": true
+	}
+}

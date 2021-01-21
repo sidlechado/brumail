@@ -1,0 +1,13 @@
+{
+	"env": {
+		"NODE_ENV": "development",
+		"TS_NODE_FILES": true
+	},
+	"exec": "node -r ts-node/register -r tsconfig-paths/register --inspect src/index.ts",
+	"ext": "json,ts",
+	"ignore": [
+		"src/**/*.spec.ts",
+		"src/**/*.d.ts"
+	],
+	"watch": ["src"]
+}
